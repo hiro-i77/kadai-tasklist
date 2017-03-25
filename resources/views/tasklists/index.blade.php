@@ -10,6 +10,13 @@
                 <li>{!! link_to_route('tasks.show', $task->id, ['id' => $task->id]) !!} : {{ $task->content }}</li>
             @endforeach
         </ul>
+    
+    {!! Form::model($task, ['route' => 'tasks.create']) !!}
+    <br />
+    {!! link_to_route('tasks.create', 'タスクの新規作成') !!}
+    
     @endif
+    
+    
 
 @endsection
