@@ -43,6 +43,12 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        // 空っぽでない、かつ２５５文字を超えない設定
+        $this->validate($request, [
+            'content' => 'required|max:255',
+        ]);
+        
+        
         $task = new Task;
         $task->content = $request->content;
         $task->save();
@@ -85,6 +91,11 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // updateバリデーション
+        $this->validate($request, [
+            'content' => 'required|max:255',
+        ]);        
+
         $task = Task::find($id);
         $task->content = $request->content;
         $task->save();
