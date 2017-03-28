@@ -6,16 +6,24 @@
     
     @include('commons.error_tasks')
     
-    {!! Form::model($task, ['route' => 'tasks.store']) !!}
+    <div class="row">
+        <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
     
-        {!! Form::label('status', 'ステータス：') !!}
-        {!! Form::text('status') !!}
-
-        {!! Form::label('content', 'タスク：') !!}
-        {!! Form::text('content') !!}
+            {!! Form::model($task, ['route' => 'tasks.store']) !!}
+            
+                <div class="form-group">    
+                    {!! Form::label('status', 'ステータス：') !!}
+                    {!! Form::text('status', null, ['class' => 'form-control']) !!}
+                </div>
         
-        {!! Form::submit('確定') !!}
-    
-    {!! Form::close() !!}
-
+                <div class="form-group">
+                    {!! Form::label('content', 'タスク：') !!}
+                    {!! Form::text('content', null, ['class' => 'form-control']) !!}
+                </div>
+                
+                {!! Form::submit('確定', ['class' => 'btn btn-primary']) !!}
+            
+            {!! Form::close() !!}
+        </div><!--.col-xs-6-->
+    </div><!--.row-->
 @endsection
